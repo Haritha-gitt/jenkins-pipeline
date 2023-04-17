@@ -12,7 +12,7 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'mvn clean install'
+                bat 'start /b mvn clean install'
             }
         }
     }
