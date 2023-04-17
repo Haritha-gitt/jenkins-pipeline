@@ -3,13 +3,10 @@ pipeline {
     tools {
             maven 'maven'
     }
-    tools {
-  git 'Git'
-}
-
     stages {
         stage('Checkout') {
             steps {
+                tool 'Git'
                 git 'https://github.com/Haritha-gitt/jenkins-pipeline.git'
             }
         }
