@@ -3,6 +3,10 @@ pipeline {
     tools {
             maven 'maven'
     }
+    tools {
+  git 'Git'
+}
+
     stages {
         stage('Checkout') {
             steps {
