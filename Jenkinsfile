@@ -22,5 +22,10 @@ pipeline {
                 bat 'mvn test'
             }
         }
+        stage('docker image') {
+            steps {
+                bat 'docker build -t harithabondalapati/new-image'
+            }
+        }
     }
 }
