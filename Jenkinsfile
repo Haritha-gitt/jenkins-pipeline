@@ -31,7 +31,7 @@ pipeline {
         {
             steps{
                 withCredentials([string(credentialsId: 'dockerhubid', variable: 'dockerhubpwd')]) {
-                    bat 'docker login -u harithabondalapati -p ${dockerhubpwd}'
+                    bat 'docker login -u harithabondalapati --password-stdin ${dockerhubpwd}'
 
                 }
                 bat 'docker push harithabondalapati/new-image'
