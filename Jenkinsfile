@@ -31,10 +31,10 @@ pipeline {
         {
             steps{
                 withCredentials([string(credentialsId: 'dockerhubid', variable: 'dockerhubpwd')]) {
-                    bat 'echo $dockerhub | docker login -u harithabondalapati --password-stdin'
+                    bat 'echo $dockerhubpwd | docker login -u harithabondalapati --password-stdin'
 
                 }
-                bat 'docker push harithabondalapati/new-image'
+                bat 'docker push harithabondalapati/new-image:latest'
             }
         }
     }
