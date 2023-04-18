@@ -30,7 +30,9 @@ pipeline {
         stage('dockerhub push')
         {
             steps{
-                    bat 'docker login -u harithabondalapati -p Hari@2306'
+                withCredentials([string(credentialsId: 'dockerhubvar', variable: 'dockerhubpwd')]) {
+                        bat 'docker login -u harithabondalapati -p %dockerhubpwd%'
+                    }
                 bat 'docker push harithabondalapati/new-image:latest'
             }
         }
