@@ -27,5 +27,14 @@ pipeline {
                 bat 'docker build -t harithabondalapati/new-image .'
             }
         }
+        stage('dockerhub push')
+        {
+            steps{
+                withCredentials([string(credentialsId: 'dockerhubvar', variable: 'dockerhubpwd')]) {
+                    bat 'docker login -u harithabondalapati -p  ${dockerhubpwd}'
+                }
+                bat 'docker push harithabondalapati/new-image'
+            }
+        }
     }
 }
