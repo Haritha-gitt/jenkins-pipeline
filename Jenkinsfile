@@ -4,6 +4,9 @@ pipeline {
             maven 'maven'
     }
     stages {
+        stage('Checkout,Build,Test,hello'){
+            steps{
+                parallel(
         stage('Checkout') {
             steps {
                 git branch:'master',
@@ -28,6 +31,9 @@ pipeline {
         stage('hello'){
             steps {
                 echo'end of pipeline'
+            }
+        }
+                )
             }
         }
     }
