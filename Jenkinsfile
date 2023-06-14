@@ -22,18 +22,9 @@ pipeline {
                 bat 'mvn test'
             }
         }
-        stage('docker image') {
+        stage('hello'){
             steps {
-                bat 'docker build -t harithabondalapati/new-image:latest .'
-            }
-        }
-        stage('dockerhub push')
-        {
-            steps{
-                withCredentials([string(credentialsId: 'dockerhubvar', variable: 'dockerhubpwd')]) {
-                        bat 'docker login -u harithabondalapati -p %dockerhubpwd%'
-                    }
-                bat 'docker push harithabondalapati/new-image:latest'
+                echo'end of pipeline'
             }
         }
     }
