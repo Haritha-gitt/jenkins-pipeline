@@ -36,10 +36,5 @@ pipeline {
                 bat 'docker push harithabondalapati/new-image:latest'
             }
         }
-        stage('deploy'){
-            steps{
-                ansiblePlaybook credentialsId: 'dev-server', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'ansible.yml'
-            }
-        }
     }
 }
