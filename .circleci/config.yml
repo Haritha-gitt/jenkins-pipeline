@@ -1,0 +1,14 @@
+version: 2.1
+jobs:
+  build:
+    steps:
+      - checkout
+      - run:
+        command: mvn clean install
+      - run:
+        command: mvn test
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
