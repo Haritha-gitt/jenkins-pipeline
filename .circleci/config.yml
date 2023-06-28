@@ -1,8 +1,16 @@
 version: 2.1
 jobs:
+  build:
+    docker:
+      - image: circleci/maven:3.8.4
     steps:
       - checkout
       - run:
-        command: mvn clean install
+          command: mvn clean install
       - run:
-        command: mvn test
+          command: mvn test
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
