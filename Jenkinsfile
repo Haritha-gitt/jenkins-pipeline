@@ -19,8 +19,11 @@ pipeline {
         stage('docker image') {
             steps {
                 script {
+                    withCredentials([string(credentialsId: 'github', variable: 'github-cred')]) {
                     docker.withRegistry('', 'docker-jenkins') {
                         def image = docker.build('harithabondalapati/test:latest')
+                    }
+                    
                     }
                 }
             }
